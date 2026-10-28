@@ -1,0 +1,186 @@
+/* UI_RULES.md 为数值规范；此文件是唯一运行时 token 定义。 */
+:root {
+  /* 品牌基础色；secondary 仅装饰 */
+  --color-primary: #5F6F5F;
+  --color-primary-hover: #445044;
+  --color-primary-pressed: #3B453B;
+  --color-primary-deep: #4D5A4D;
+  --color-primary-light: #EBF0EB;
+  --color-secondary: #B8A489;
+  /* 功能色及浅底 */
+  --color-success: #3C654E;
+  --color-success-light: #EDF4EF;
+  --color-warning: #85602D;
+  --color-warning-light: #FAF2E7;
+  --color-danger: #A44747;
+  --color-danger-light: #FAEEEE;
+  --color-info: #426983;
+  --color-info-light: #EDF3F7;
+  /* 文字语义色 */
+  --color-text-primary: #263128;
+  --color-text-secondary: #4F5A51;
+  --color-text-weak: #5E685F;
+  --color-text-inverse: #FFFFFF;
+  --color-text-link: var(--color-primary-deep);
+  --color-text-disabled: var(--color-text-weak);
+  /* 表面与非文字 UI；divider 仅装饰 */
+  --color-bg-page: #F5F6F4;
+  --color-bg-card: #FFFFFF;
+  --color-bg-hover: #EFF2ED;
+  --color-bg-pressed: #E3E9E2;
+  --color-bg-disabled: #E7EAE5;
+  --color-divider: #DBE1D9;
+  --color-border: #748075;
+  --color-border-strong: #626C63;
+  --color-mask: rgb(38 49 40 / 40%);
+  --color-focus-ring: var(--color-primary-deep);
+  /* 分类图表色；必须配合标签、符号或线型 */
+  --color-chart-category-alpha: #4D5A4D;
+  --color-chart-category-beta: #426983;
+  --color-chart-category-gamma: #85602D;
+  --color-chart-category-delta: #76578A;
+  --color-chart-category-epsilon: #A44747;
+  --color-chart-category-zeta: #2D7171;
+  /* 顺序图表色；xs 至 xl 表示低至高 */
+  --color-chart-sequential-xs: #E3EBE3;
+  --color-chart-sequential-sm: #B7C9B7;
+  --color-chart-sequential-md: #8DA78D;
+  --color-chart-sequential-lg: #627F62;
+  --color-chart-sequential-xl: #3E563E;
+  /* 字体栈与字重 */
+  --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  /* 字号与行高；均为管理后台值 */
+  --font-size-display: 30px;
+  --font-size-h1: 20px;
+  --font-size-h2: 16px;
+  --font-size-h3: 14px;
+  --font-size-body: 14px;
+  --font-size-sm: 12px;
+  --font-size-xs: 12px;
+  --line-height-body: 1.5715;
+  --line-height-heading: 1.4;
+  /* 基础间距阶梯；业务使用语义别名 */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-2xl: 24px;
+  --space-3xl: 32px;
+  --space-4xl: 48px;
+  /* 基础圆角与控件阶梯 */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-full: 999px;
+  --control-height-sm: 24px;
+  --control-height-md: 32px;
+  --control-height-lg: 40px;
+  /* 图标阶梯、边框、焦点、装饰禁用透明度 */
+  --icon-size-sm: 14px;
+  --icon-size-md: 16px;
+  --icon-size-lg: 20px;
+  --border-width: 1px;
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --opacity-disabled: 0.4;
+  /* 克制动效；只动画 transform / opacity */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  /* 阴影；面板默认不用阴影 */
+  --shadow-card: 0 1px 2px rgb(38 49 40 / 4%);
+  --shadow-float: 0 4px 12px rgb(38 49 40 / 8%);
+  --shadow-modal: 0 8px 24px rgb(38 49 40 / 12%);
+  /* 层级 */
+  --z-index-base: 1;
+  --z-index-sticky: 100;
+  --z-index-dropdown: 200;
+  --z-index-mask: 900;
+  --z-index-modal: 1000;
+  --z-index-toast: 1100;
+  /* 后台布局与密度 */
+  --layout-design-width: 1440px;
+  --layout-min-width: 1280px;
+  --layout-form-max-width: 960px;
+  --layout-sider-width: 220px;
+  --layout-sider-collapsed-width: 64px;
+  --layout-header-height: 56px;
+  --layout-content-padding: var(--space-2xl);
+  --layout-panel-gap: var(--space-lg);
+  --table-row-height: 48px;
+  --table-row-height-compact: 40px;
+  --form-label-width: 96px;
+  /* 弹窗与抽屉宽度 */
+  --modal-width-sm: 480px;
+  --modal-width-md: 640px;
+  --modal-width-lg: 800px;
+  --modal-width-xl: 1000px;
+  --drawer-width-md: 480px;
+  --drawer-width-lg: 720px;
+  /* 语义尺寸；基础类与业务优先引用 */
+  --radius-card: var(--radius-lg);
+  --radius-button: var(--radius-md);
+  --radius-input: var(--radius-md);
+  --radius-tag: var(--radius-sm);
+  --radius-modal: var(--radius-lg);
+  --card-padding: var(--space-lg);
+  --card-gap: var(--space-md);
+  --space-page: var(--layout-content-padding);
+  --button-height: var(--control-height-md);
+  --button-height-sm: var(--control-height-sm);
+  --button-height-lg: var(--control-height-lg);
+  --button-padding-inline: var(--space-lg);
+  --button-gap: var(--space-sm);
+  --input-height: var(--control-height-md);
+  --input-padding-inline: var(--space-md);
+  --form-item-gap: var(--space-lg);
+  --form-label-gap: var(--space-sm);
+  --table-cell-padding: var(--space-md);
+  --table-cell-padding-compact: var(--space-sm);
+  --tag-padding-inline: var(--space-sm);
+  --tag-height: var(--control-height-sm);
+  --icon-size-control: var(--icon-size-md);
+  /* 按钮、输入框与面板语义色 */
+  --color-btn-primary-bg: var(--color-primary-deep);
+  --color-btn-primary-hover: var(--color-primary-hover);
+  --color-btn-primary-pressed: var(--color-primary-pressed);
+  --color-btn-primary-text: var(--color-text-inverse);
+  --color-btn-secondary-bg: var(--color-bg-card);
+  --color-btn-secondary-text: var(--color-text-link);
+  --color-btn-danger-bg: var(--color-danger);
+  --color-btn-disabled-bg: var(--color-bg-disabled);
+  --color-btn-disabled-text: var(--color-text-disabled);
+  --color-input-bg: var(--color-bg-card);
+  --color-input-border: var(--color-border);
+  --color-input-border-hover: var(--color-border-strong);
+  --color-input-border-error: var(--color-danger);
+  --color-input-placeholder: var(--color-text-weak);
+  --color-card-bg: var(--color-bg-card);
+  --color-card-border: var(--color-divider);
+  /* 表格、导航及中性标签语义色 */
+  --color-bg-table-header: var(--color-bg-hover);
+  --color-text-table-header: var(--color-text-primary);
+  --color-bg-table-row-hover: var(--color-bg-hover);
+  --color-bg-table-row-selected: var(--color-primary-light);
+  --color-bg-sider: var(--color-bg-card);
+  --color-text-sider: var(--color-text-secondary);
+  --color-bg-sider-selected: var(--color-primary-light);
+  --color-text-sider-selected: var(--color-primary-deep);
+  --color-tag-neutral-bg: var(--color-bg-disabled);
+  --color-tag-neutral-text: var(--color-text-secondary);
+  /* 业务状态；文本 / 背景成对引用 */
+  --color-status-progress: var(--color-info);
+  --color-status-progress-bg: var(--color-info-light);
+  --color-status-success: var(--color-success);
+  --color-status-success-bg: var(--color-success-light);
+  --color-status-pending: var(--color-warning);
+  --color-status-pending-bg: var(--color-warning-light);
+  --color-status-error: var(--color-danger);
+  --color-status-error-bg: var(--color-danger-light);
+  --color-status-inactive: var(--color-tag-neutral-text);
+  --color-status-inactive-bg: var(--color-tag-neutral-bg);
+}

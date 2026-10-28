@@ -1,0 +1,10 @@
+/*
+ * 统一入口：先定义 token，再加载基础样式。
+ * 分组示例：--color-primary-deep → --color-btn-primary-bg → .btn-primary。
+ * 当前没有组件库；base.css 的原生基础类消费语义 token。
+ * 不创建第二份色值，不引入组件库内部选择器覆盖。
+ * 项目入口建立后只导入此文件一次，参见 UI_RULES.md 第 7 节。
+ * Tailwind 的实际版本、Preflight 及主题映射在接入时核验。
+ */
+@import "./tokens.css";
+@import "./base.css";

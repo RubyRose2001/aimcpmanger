@@ -1,0 +1,126 @@
+/* 示例分组：排版使用 --color-text-*，基础组件使用 --color-btn-* 等语义 token。 */
+@layer base, components;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  :where(body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd, ul, ol) { margin: 0; }
+  body {
+    min-width: var(--layout-min-width);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-body);
+    color: var(--color-text-primary);
+    background: var(--color-bg-page);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  :where(button, input, select, textarea) { font: inherit; color: inherit; }
+  :where(img) { display: block; max-width: 100%; height: auto; }
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-weight: var(--font-weight-semibold); line-height: var(--line-height-heading);
+  }
+  :where(h1) { font-size: var(--font-size-h1); }
+  :where(h2) { font-size: var(--font-size-h2); }
+  :where(h3, h4, h5, h6) { font-size: var(--font-size-h3); }
+  :where(a) { color: var(--color-text-link); text-decoration: underline; }
+  :where(:focus-visible) {
+    outline: var(--focus-ring-width) solid var(--color-focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+  ::selection { color: var(--color-text-primary); background: var(--color-primary-light); }
+  /* 仅 WebKit 滚动条着色，不收窄系统可点击宽度。 */
+  ::-webkit-scrollbar-track { background: var(--color-bg-page); }
+  ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: var(--radius-full); }
+}
+
+@layer components {
+  .text-display { font-size: var(--font-size-display); line-height: var(--line-height-heading); }
+  .text-secondary { color: var(--color-text-secondary); }
+  .text-weak { color: var(--color-text-weak); }
+  .text-num { font-variant-numeric: tabular-nums; }
+  .ellipsis { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; vertical-align: middle;
+    gap: var(--button-gap); min-height: var(--button-height); padding: 0 var(--button-padding-inline);
+    border: var(--border-width) solid var(--color-border); border-radius: var(--radius-button);
+    background: var(--color-btn-secondary-bg); color: var(--color-btn-secondary-text);
+    font-weight: var(--font-weight-medium); line-height: var(--line-height-heading);
+    text-decoration: none; cursor: pointer;
+    transition: transform var(--duration-fast) var(--ease-standard), opacity var(--duration-fast) var(--ease-standard);
+  }
+  .btn-primary {
+    color: var(--color-btn-primary-text); background: var(--color-btn-primary-bg);
+    border-color: var(--color-btn-primary-bg);
+  }
+  .btn-secondary { color: var(--color-btn-secondary-text); background: var(--color-btn-secondary-bg); }
+  .btn-text { background: transparent; border-color: transparent; text-decoration: underline; }
+  .btn-danger {
+    color: var(--color-text-inverse); background: var(--color-btn-danger-bg); border-color: var(--color-btn-danger-bg);
+  }
+  .btn-sm { min-height: var(--button-height-sm); }
+  .btn-lg { min-height: var(--button-height-lg); }
+  .input {
+    display: block; width: 100%; min-height: var(--input-height); padding: 0 var(--input-padding-inline);
+    border: var(--border-width) solid var(--color-input-border); border-radius: var(--radius-input);
+    background: var(--color-input-bg); color: var(--color-text-primary);
+  }
+  .input::placeholder { color: var(--color-input-placeholder); opacity: 1; }
+  .form-item { margin-block-end: var(--form-item-gap); }
+  .form-label { display: inline-block; width: var(--form-label-width); margin-inline-end: var(--form-label-gap); text-align: right; }
+  .form-error { color: var(--color-status-error); font-size: var(--font-size-sm); }
+  .card { padding: var(--card-padding); border: var(--border-width) solid var(--color-card-border); border-radius: var(--radius-card); background: var(--color-card-bg); }
+  .table { width: 100%; border-collapse: collapse; background: var(--color-bg-card); color: var(--color-text-primary); }
+  .table :where(th, td) { padding: var(--table-cell-padding); border-block-end: var(--border-width) solid var(--color-divider); text-align: start; }
+  .table th { color: var(--color-text-table-header); background: var(--color-bg-table-header); font-weight: var(--font-weight-medium); }
+  .table tbody tr { height: var(--table-row-height); }
+  .table-compact tbody tr { height: var(--table-row-height-compact); }
+  .table-compact :where(th, td) { padding-block: var(--table-cell-padding-compact); }
+  .table .text-num { text-align: end; }
+  .tag {
+    display: inline-flex; align-items: center; min-height: var(--tag-height); padding: 0 var(--tag-padding-inline);
+    border-radius: var(--radius-tag); font-size: var(--font-size-sm);
+    color: var(--color-status-inactive); background: var(--color-status-inactive-bg);
+  }
+  .tag-primary { color: var(--color-primary-deep); background: var(--color-primary-light); }
+  .tag-info { color: var(--color-status-progress); background: var(--color-status-progress-bg); }
+  .tag-success { color: var(--color-status-success); background: var(--color-status-success-bg); }
+  .tag-warning { color: var(--color-status-pending); background: var(--color-status-pending-bg); }
+  .tag-danger { color: var(--color-status-error); background: var(--color-status-error-bg); }
+  .modal-panel {
+    width: var(--modal-width-md); padding: var(--card-padding); color: var(--color-text-primary);
+    background: var(--color-card-bg); border: var(--border-width) solid var(--color-card-border);
+    border-radius: var(--radius-modal); box-shadow: var(--shadow-modal);
+  }
+  .modal-sm { width: var(--modal-width-sm); }
+  .modal-lg { width: var(--modal-width-lg); }
+  .modal-xl { width: var(--modal-width-xl); }
+  @media (hover: hover) {
+    .btn:where(:hover) { background: var(--color-bg-hover); }
+    .btn-primary:where(:hover) { background: var(--color-btn-primary-hover); border-color: var(--color-btn-primary-hover); }
+    .btn-danger:where(:hover) { background: var(--color-btn-danger-bg); text-decoration: underline; }
+    .input:where(:hover) { border-color: var(--color-input-border-hover); }
+    .table tbody tr:where(:hover) { background: var(--color-bg-table-row-hover); }
+  }
+  .btn:where(:active) { background: var(--color-bg-pressed); transform: translateY(var(--border-width)); }
+  .btn-primary:where(:active) { background: var(--color-btn-primary-pressed); border-color: var(--color-btn-primary-pressed); }
+  .btn-danger:where(:active) { background: var(--color-btn-danger-bg); text-decoration: underline; }
+  .input:where(.is-error, [aria-invalid="true"]) { border-color: var(--color-input-border-error); }
+  .table tbody tr:where(.is-active, [aria-selected="true"]) { background: var(--color-bg-table-row-selected); }
+  .table tbody tr:where(.is-active, [aria-selected="true"]) > :first-child { border-inline-start: var(--focus-ring-width) solid var(--color-focus-ring); }
+  /* 禁用规则后置且不降低文字透明度；行为需使用原生 disabled / 业务事件守卫。 */
+  .btn:where(:disabled, [aria-disabled="true"], .is-disabled) {
+    background: var(--color-btn-disabled-bg); color: var(--color-btn-disabled-text);
+    border-color: var(--color-border); cursor: not-allowed; transform: none; text-decoration: none;
+  }
+  .input:where(:disabled, [aria-disabled="true"], .is-disabled) {
+    background: var(--color-bg-disabled); color: var(--color-text-disabled);
+    border-color: var(--color-input-border); cursor: not-allowed;
+  }
+}
+
+/* 基础 reset 规则，无 !important；应用的非必要动画也须遵守减少动效偏好。 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none; transition: none; scroll-behavior: auto; }
+  .btn:where(:active) { transform: none; }
+}
